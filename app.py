@@ -19,7 +19,8 @@ model = load_model()
 
 # Image preprocessing
 def preprocess_image(image):
-    image = image.resize((256, 256))  # Match model input size
+    image = image.convert("RGB")  # 💡 Ensure it's 3 channels (RGB)
+    image = image.resize((256, 256))
     image = np.array(image) / 255.0
     return np.expand_dims(image, axis=0)
 
