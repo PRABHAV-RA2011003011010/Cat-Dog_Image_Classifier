@@ -11,7 +11,7 @@ if uploaded_file:
     if st.button("Classify via API"):
         files = {"file": uploaded_file.getvalue()}
         try:
-            response = requests.post("http://fastapi:8000/predict", files=files)
+            response = requests.post("http://127.0.0.1:8000/predict", files=files)
             data = response.json()
             label = "🐶 Dog" if data["result"] == "dog" else "🐱 Cat"
             st.success(f"Prediction: {label} ({data['confidence']:.2f})")
