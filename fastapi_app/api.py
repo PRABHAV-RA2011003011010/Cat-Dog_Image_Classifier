@@ -29,3 +29,5 @@ async def predict(file: UploadFile = File(...)):
     result = "dog" if prediction > 0.5 else "cat"
     confidence = float(prediction if prediction > 0.5 else 1 - prediction)
     return {"result": result, "confidence": confidence}
+
+
